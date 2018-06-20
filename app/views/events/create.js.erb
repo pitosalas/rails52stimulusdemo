@@ -1,0 +1,3 @@
+console.log("create.js.erb");
+document.querySelector("#events").insertAdjacentHTML("beforeEnd", "<%= j render @event%>")
+document.querySelector("#event_name").value = ""

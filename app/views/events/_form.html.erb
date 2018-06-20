@@ -1,0 +1,23 @@
+<%= form_with(model: event, data: {controller: "event-form"}) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, placeholder: "enter a name", data: { target: "event-form.name", action: "keyup->event-form#update" }  %>
+  </div>
+  <span data-target="event-form.charcount">FOO</span>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
