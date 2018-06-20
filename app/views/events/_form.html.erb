@@ -12,12 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, placeholder: "enter a name", data: { target: "event-form.name", action: "keyup->event-form#update" }  %>
+    <%= form.label :name, class: "label" %>
+    <%= form.text_field :name, placeholder: "enter a name", data: { target: "event-form.name", action: "keyup->event-form#update" }, class:"control" %>
+    <span data-target="event-form.charcount">FOO</span>
   </div>
-  <span data-target="event-form.charcount">FOO</span>
-
-  <div class="actions">
-    <%= form.submit %>
+  
+  <div class="field is-grouped" > 
+    <div class="control" >
+      <button class="button is-link is-small">Submit</button>
+    </div>
+    <div class="control">
+      <button class="button is-text is-small">Cancel</button>
+    </div>
   </div>
 <% end %>
