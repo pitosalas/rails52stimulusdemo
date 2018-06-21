@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.all.order(:created_at)
     @event = Event.new
   end
 
@@ -46,9 +46,11 @@ class EventsController < ApplicationController
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

@@ -1,7 +1,10 @@
-<div class="box">
-  <p class="has-text-weight-semibold">Event</p>
-  <p>
-    <strong>Name: &nbsp </strong>
-    <%= event.name %>
-  </p>
+<div id="<%= dom_id(event) %>" class="box inline-editor-static" data-controller="inline-edit">
+  <p class="has-text-weight-semibold">Event <%= event.id %></p>
+  <div data-target="inline-edit.p" data-action="click->inline-edit#toggle">
+    <p><strong>Name:</strong></p>
+    <p><%= event.name %><p>
+  </div>
+  <div style="display:none" class="inline-editor-live" data-target="inline-edit.form" >
+    <%= render "form", event: event %>
+  </div>
 </div>

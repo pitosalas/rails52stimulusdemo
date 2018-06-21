@@ -1,0 +1,3 @@
+console.log("update.js.erb");
+document.querySelector("#<%= dom_id(@event) %> .inline-editor-live").style.display="none"
+document.querySelector("#<%= dom_id(@event) %>.inline-editor-static").outerHTML = "<%= j render @event %>"
